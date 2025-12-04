@@ -1,0 +1,51 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.querySelector('#searchInput');
+  const searchBtn = document.querySelector('#searchBtn');
+  const searchResults = document.getElementById('searchResults');
+
+  if (!searchInput || !searchBtn || !searchResults) {
+    console.warn('⚠️ عناصر جستجو پیدا نشدند');
+    return;
+  }
+
+  searchBtn.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (!query) {
+      searchResults.innerHTML = '<p>لطفاً عبارتی برای جستجو وارد کنید.</p>';
+      return;
+    }
+
+    fetch('/users.json')
+      .then(res => res.json())
+      .then(data => {
+        const results = data.filter(u =>
+          u.role === 'مشاور' && u.name.includes(query)
+        );
+
+        if (!results.length) {
+          searchResults.innerHTML = '<p>مشاوری یافت نشد.</p>';
+          return;
+        }
+
+        searchResults.innerHTML = ''; // پاک کردن نتایج قبلی
+
+        results.forEach(c => {
+          const card = document.createElement('div');
+          card.className = 'consultant_card';
+          card.innerHTML = `
+            <img src="${c.avatar || '/default-avatar.png'}" alt="avatar" />
+            <h4>${c.name}</h4>
+            <p>${c.email}</p>
+            <a href="/consultant.html?id=${c.id}">مشاهده پروفایل</a>
+          `;
+          searchResults.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('❌ خطا در دریافت مشاوران:', err);
+        searchResults.innerHTML = '<p>خطا در جستجو.</p>';
+      });
+  });
+});
+</script>

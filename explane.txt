@@ -1,0 +1,316 @@
+سلام آقا سجاد
+
+اقا سجاد من همه فایل های فرانت اند رو برای اینکه توی بک اند هم خونده بشه توی بک اند هم گذاشتم بدیت صورت که میری توی بک اند و پابلیک و اونجا همه فایل ها موجوده به غیر از صفحه اول یا همون index 
+
+مثلا برای دسترسی هم میتونن از طریق فرانت برید هم بک اند توی server.js اگر به چنین چیزهایی بر خوردیم من اینجوری نوشتم که 
+
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/login/login.html'));
+});
+
+یعنی برو از پو.شه پابلیک این رو فراخونی کن صفحه اش رو حالا با توجه به خودتون میتونید آدرس ها رو عوض کنید 
+
+توی contorollers همه چیز مشخصه که وقتی توی صفحه ثبت نام یا لاگین هستیم این قسمت همه چیز رو کنترل کنه 
+
+توی data هم که کاربرها و سابسکریشن ها هستند که اصلاعات کاربران برای ورود و فراخوانی به صفحه داشبورد و یا فرستادن نوتیف هست 
+
+توی middlewares auth برای توکن ها و uploadMiddleware.js برای مسیر ذخیره (تا جایی که یادمه برای صفحه داشبورد بود )
+
+توی models bookingmodel.js بیشتر برای مسائل پرداخت و ... که بتونن برن صحبت کنن من کداش رو اینجا میزارم که ببینی البته که یوزر و ... رو هم داره 
+
+const mongoose = require('mongoose');
+
+const bookingSchema = new mongoose.Schema({
+  user:    { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  advisor: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  status:  { type: String, enum: ['پرداخت شده', 'لغو شده'], default: 'پرداخت شده' },
+consultant: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  createdAt:  { type: Date, default: Date.now },
+  date:    { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('Booking', bookingSchema);
+
+
+usermodel توی models م برای پایگاه داده ونگو دی بی هست که نگاه کنی کاملا مشخصه 
+
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  name:     { type: String, required: true },
+  email:    { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  shaba:    { type: String, required: true },
+  role:     { type: String, required: true, enum: ['کاربر','مشاور'] },
+  views:    { type: Number, default: 0 },
+  bookings: { type: Number, default: 0 },
+  avatar:     String,
+  melliImage: String,
+  aboutYourself: String,
+  aboutEducation: String,
+  resumeFile: String,
+
+}, { timestamps: true });
+
+module.exports = mongoose.model('User', userSchema);
+
+
+
+توی پابلیک هم که همه چیز مشخصه وفایل های فرانت اونجا حضور داره و برای مسیر دهی بهش و ظاهر وبسایت استفاده میشه 
+
+نکته : توی پابلیک این یه تیکه کد رو بخون و آدرس api و 0.. رو چک کن  که اشتباهی نباشه چون من با منطق فرانتی بهش آدرس دادم 
+
+
+<script>
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const token = localStorage.getItem('token');
+  if (!token) return console.warn('⚠️ No token found. کاربر لاگین نیست');
+
+  const profileImg     = document.getElementById('profileImage');
+  const uploadInput    = document.getElementById('profileUpload');
+  const nameSpan       = document.getElementById('userName');
+  const emailSpan      = document.getElementById('userEmail');
+  const aboutInput     = document.getElementById('aboutText');
+  const educationInput = document.getElementById('educationText');
+  const resumeInput    = document.getElementById('resumeUpload');
+  const resumeLink     = document.getElementById('resumeLink');
+  const resumePreview  = document.getElementById('resumePreview'); // ✅ این خط اضافه شد
+  const saveBtn        = document.getElementById('saveProfile');
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const consultantId = urlParams.get('id');
+  // if (!consultantId) return alert('❌ شناسه مشاور مشخص نیست');
+
+
+  // ۱. دریافت اطلاعات کاربر
+ fetch('/api/user', {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .then(res => res.json())
+    .then(user => {
+      nameSpan.textContent  = user.name || 'نام نامشخص';
+      emailSpan.textContent = user.email || '';
+      if (user.photoUrl)       profileImg.src = user.photoUrl;
+      if (user.aboutYourself)  aboutInput.value = user.aboutYourself;
+      if (user.aboutEducation) educationInput.value = user.aboutEducation;
+
+      if (user.resumeFile) {
+        resumeLink.href = user.resumeFile;
+        resumeLink.textContent = '📎 مشاهده رزومه';
+        resumeLink.target = '_blank';
+        resumeLink.style.display = 'inline-block';
+      } else {
+        resumeLink.style.display = 'none';
+      }
+    })
+    .catch(err => console.error('❌ خطا در گرفتن اطلاعات کاربر:', err));
+
+  // ۲. پیش‌نمایش رزومه
+  resumeInput.addEventListener('change', e => {
+    const file = e.target.files[0];
+    resumePreview.innerHTML = ''; // پاک کردن قبلی
+    if (!file) return;
+
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (['png', 'jpg', 'jpeg'].includes(ext)) {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        resumePreview.innerHTML = `<img src="${ev.target.result}" alt="Resume Image" style="max-width: 150px; border-radius: 8px; margin-top: 8px;" />`;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      resumePreview.textContent = `📄 ${file.name}`;
+    }
+  });
+
+  // ۳. آپلود عکس پروفایل
+  uploadInput.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = ev => {
+      profileImg.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    fetch('/api/user/upload-profile', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.avatar) {
+          profileImg.src = data.avatar;
+          console.log('✅ تصویر آپلود شد');
+        }
+      })
+      .catch(err => console.error('❌ خطای آپلود تصویر:', err));
+  });
+
+  // ۴. ذخیره رزومه و متن‌ها
+  saveBtn.addEventListener('click', () => {
+    const formData = new FormData();
+    formData.append('aboutYourself', aboutInput.value);
+    formData.append('aboutEducation', educationInput.value);
+    if (resumeInput.files[0]) {
+      formData.append('resume', resumeInput.files[0]);
+    }
+
+    fetch('http://localhost:5000/api/user/consultant', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert('✅ اطلاعات با موفقیت ذخیره شد');
+          if (data.resumeFile) {
+            resumeLink.href = data.resumeFile;
+            resumeLink.textContent = '📎 مشاهده رزومه';
+            resumeLink.target = '_blank';
+            resumeLink.style.display = 'inline-block';
+          }
+        } else {
+          alert('❌ خطا در ذخیره اطلاعات');
+        }
+      })
+      .catch(err => console.error('❌ خطای ذخیره اطلاعات:', err));
+  });
+
+  // ۵. منوی اکانت
+  const nameContainer = document.querySelector('.full_name_user');
+  const dropdown = document.querySelector('.list_account_user');
+  if (nameContainer && dropdown) {
+    nameContainer.addEventListener('click', () => {
+      dropdown.classList.toggle('active_account');
+    });
+  }
+});
+</script>
+
+
+نکته دوم : consultant.js , dashboard.html رو حتما کدهاش رو ببین به همراه آدرسی چیزی که فکر میکنی درسته وارد کن 
+
+نکته سوم :این هم بسیار مهمه dashboard.html و حتما چکش کن 
+
+نکته بعدی اینکه search.js رو نگاه کن انگار کداش با search.js یکیه اما حواست باشه ممکنه حذف کنی و بخش داشبورد دچار مشکل بشه و کار نکنه شاید یه بخشی از لوپ از همینه 
+
+من توی پابلیک users.json رو دارم در صورتی که توی data هم هست اینم بگم ببین کدوم آپدیت تره همون رو نگه دار من هم اینکار رو بیشتر برای تست کردم فکر کنم بخش همون data بهتره 
+
+
+این user.html رو حتما چک کن 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const token = localStorage.getItem('token');
+  if (!token) return alert('لطفاً ابتدا وارد شوید');
+
+  const userName = document.getElementById('userName');
+  const userEmail = document.getElementById('userEmail');
+  const profileImg = document.getElementById('profileImage');
+  const viewCount = document.getElementById('viewCount');
+  const bookingCount = document.getElementById('bookingCount');
+  const searchInput = document.querySelector('.search_box_header #searchInput');
+  const searchBtn = document.querySelector('.search_box_header #searchBtn');
+  const searchResults = document.getElementById('searchResults');
+
+  // ۱) اطلاعات پروفایل کاربر
+  fetch('/api/user', {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .then(res => res.json())
+    .then(u => {
+      userName.textContent = u.name || 'نام کاربر';
+      userEmail.textContent = u.email || '';
+      if (u.photoUrl) profileImg.src = u.photoUrl;
+    })
+    .catch(err => console.error('❌ خطا در دریافت اطلاعات کاربر:', err));
+
+  // ۲) آمار بازدید و رزرو
+  // fetch('/api/user', {
+  //   headers: { Authorization: `Bearer ${token}` }
+  // })
+  //   .then(res => res.json())
+  //   .then(d => {
+  //     viewCount.textContent = d.views || 0;
+  //     bookingCount.textContent = d.bookings || 0;
+  //   })
+  //   .catch(err => console.error('❌ خطا در دریافت آمار:', err));
+
+  // ۳) جستجوی مشاوران
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener('click', () => {
+      const q = searchInput.value.trim();
+      if (!q) {
+        searchResults.innerHTML = '<p>لطفاً عبارت جستجو را وارد کنید.</p>';
+        return;
+      }
+
+      fetch(`/api/search/consultants?q=${encodeURIComponent(q)}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+        .then(res => res.json())
+        .then(data => {
+          searchResults.innerHTML = '';
+          if (!data.results || data.results.length === 0) {
+            searchResults.innerHTML = '<p>مشاوری یافت نشد.</p>';
+            return;
+          }
+
+          data.results.forEach(c => {
+            const div = document.createElement('div');
+            div.className = 'consultant_card';
+            div.innerHTML = `
+              <img src="${c.avatar || '/default-avatar.png'}" alt="مشاور" />
+              <h4 style="color=#fff;">${c.name}</h4>
+              <p>${''}</p>
+              <a href="/consultant.html?name=${encodeURIComponent(c.name)}">مشاهده پروفایل</a>
+            `;
+
+            console.log("🔗 Going to:", `/consultant.html?name=${encodeURIComponent(c.name)}`);
+
+            searchResults.appendChild(div);
+          });
+        })
+        .catch(err => {
+          console.error('❌ خطا در جستجوی مشاور:', err);
+          searchResults.innerHTML = '<p>خطا در دریافت نتایج</p>';
+        });
+    });
+  }
+});
+</script>
+
+این هایی که بهت گفتم توی پابلیک مهم ترین فایل ها هستند 
+
+کلا routes رو ببین چون تمامی مسیر دهی ها از همین جاهاست کدهاشم زیاد نیست چند دقیقه وقت بزار متوجه میشی 
+
+توی utils ذخیره فایل و اینجور چیزهاست 
+
+addlds  هم یک id تولید میکنه برای هر شخصی که توی لینکی که ساخته میشه یونیک باشه و برای همون شخض رو باز کنه 
+
+و بعدش اینه که من توی صفحه ورود وقتی میرم توی داشبورد یوزر که اسم مشاور رو سرچ کنم این ارور رو به من برمیگردونه البته این رو هم بگم که اجرا میشه ولی خب ظاهرا ایراد داره 
+
+
+CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "User"
+    at SchemaObjectId.cast (E:\consulting1.1\backend\node_modules\mongoose\lib\schema\objectId.js:251:11)
+    at SchemaType.applySetters (E:\consulting1.1\backend\node_modules\mongoose\lib\schemaType.js:1255:12)
+    at SchemaType.castForQuery (E:\consulting1.1\backend\node_modules\mongoose\lib\schemaType.js:1673:17)
+    at cast (E:\consulting1.1\backend\node_modules\mongoose\lib\cast.js:390:32)
+    at Query.cast (E:\consulting1.1\backend\node_modules\mongoose\lib\query.js:4907:12)
+    at Query._castConditions (E:\consulting1.1\backend\node_modules\mongoose\lib\query.js:2325:10)
+    at model.Query._findOne (E:\consulting1.1\backend\node_modules\mongoose\lib\query.js:2648:8)
+    at model.Query.exec (E:\consulting1.1\backend\node_modules\mongoose\lib\query.js:4456:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async E:\consulting1.1\backend\routes\user.js:729:13
+
+
+    این رو هم چک کن 

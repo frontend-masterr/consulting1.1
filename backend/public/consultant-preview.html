@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد پرداخت</title>
+    <link rel="stylesheet" href="./dashbord_consult-preview/css/style.css">
+    <link rel="stylesheet" href="./dashbord_consult-preview/css/media.css">
+    <link rel="shortcut icon" href="favicon5.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+
+    <aside>
+        <div class="logo">
+            
+            <span>مشاور مایند</span>
+        </div>
+        
+        </ul>
+        <div class="toggle_darkmode">
+            <button id="ligthModeBtn">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                        d="M9 4.90909C6.74182 4.90909 4.90909 6.74182 4.90909 9C4.90909 11.2582 6.74182 13.0909 9 13.0909C11.2582 13.0909 13.0909 11.2582 13.0909 9C13.0909 6.74182 11.2582 4.90909 9 4.90909ZM0.818182 9.81818H2.45455C2.90455 9.81818 3.27273 9.45 3.27273 9C3.27273 8.55 2.90455 8.18182 2.45455 8.18182H0.818182C0.368182 8.18182 0 8.55 0 9C0 9.45 0.368182 9.81818 0.818182 9.81818ZM15.5455 9.81818H17.1818C17.6318 9.81818 18 9.45 18 9C18 8.55 17.6318 8.18182 17.1818 8.18182H15.5455C15.0955 8.18182 14.7273 8.55 14.7273 9C14.7273 9.45 15.0955 9.81818 15.5455 9.81818ZM8.18182 0.818182V2.45455C8.18182 2.90455 8.55 3.27273 9 3.27273C9.45 3.27273 9.81818 2.90455 9.81818 2.45455V0.818182C9.81818 0.368182 9.45 0 9 0C8.55 0 8.18182 0.368182 8.18182 0.818182ZM8.18182 15.5455V17.1818C8.18182 17.6318 8.55 18 9 18C9.45 18 9.81818 17.6318 9.81818 17.1818V15.5455C9.81818 15.0955 9.45 14.7273 9 14.7273C8.55 14.7273 8.18182 15.0955 8.18182 15.5455ZM4.08273 2.92909C4.00703 2.85324 3.91713 2.79307 3.81815 2.75201C3.71917 2.71095 3.61307 2.68982 3.50591 2.68982C3.39875 2.68982 3.29265 2.71095 3.19367 2.75201C3.09469 2.79307 3.00478 2.85324 2.92909 2.92909C2.85324 3.00478 2.79307 3.09469 2.75201 3.19367C2.71095 3.29265 2.68982 3.39875 2.68982 3.50591C2.68982 3.61307 2.71095 3.71917 2.75201 3.81815C2.79307 3.91713 2.85324 4.00703 2.92909 4.08273L3.79636 4.95C4.11545 5.26909 4.63909 5.26909 4.95 4.95C5.26091 4.63091 5.26909 4.10727 4.95 3.79636L4.08273 2.92909ZM14.2036 13.05C14.1279 12.9742 14.038 12.914 13.9391 12.8729C13.8401 12.8319 13.734 12.8107 13.6268 12.8107C13.5197 12.8107 13.4136 12.8319 13.3146 12.8729C13.2156 12.914 13.1257 12.9742 13.05 13.05C12.9742 13.1257 12.914 13.2156 12.8729 13.3146C12.8319 13.4136 12.8107 13.5197 12.8107 13.6268C12.8107 13.734 12.8319 13.8401 12.8729 13.9391C12.914 14.038 12.9742 14.1279 13.05 14.2036L13.9173 15.0709C14.2364 15.39 14.76 15.39 15.0709 15.0709C15.1468 14.9952 15.2069 14.9053 15.248 14.8063C15.289 14.7074 15.3102 14.6012 15.3102 14.4941C15.3102 14.3869 15.289 14.2808 15.248 14.1819C15.2069 14.0829 15.1468 13.993 15.0709 13.9173L14.2036 13.05ZM15.0709 4.08273C15.1468 4.00703 15.2069 3.91713 15.248 3.81815C15.289 3.71917 15.3102 3.61307 15.3102 3.50591C15.3102 3.39875 15.289 3.29265 15.248 3.19367C15.2069 3.09469 15.1468 3.00478 15.0709 2.92909C14.9952 2.85324 14.9053 2.79307 14.8063 2.75201C14.7074 2.71095 14.6012 2.68982 14.4941 2.68982C14.3869 2.68982 14.2808 2.71095 14.1819 2.75201C14.0829 2.79307 13.993 2.85324 13.9173 2.92909L13.05 3.79636C12.7309 4.11545 12.7309 4.63909 13.05 4.95C13.3691 5.26091 13.8927 5.26909 14.2036 4.95L15.0709 4.08273ZM4.95 14.2036C5.02585 14.1279 5.08602 14.038 5.12708 13.9391C5.16814 13.8401 5.18927 13.734 5.18927 13.6268C5.18927 13.5197 5.16814 13.4136 5.12708 13.3146C5.08602 13.2156 5.02585 13.1257 4.95 13.05C4.87431 12.9742 4.7844 12.914 4.68542 12.8729C4.58644 12.8319 4.48034 12.8107 4.37318 12.8107C4.26603 12.8107 4.15992 12.8319 4.06094 12.8729C3.96197 12.914 3.87206 12.9742 3.79636 13.05L2.92909 13.9173C2.61 14.2364 2.61 14.76 2.92909 15.0709C3.24818 15.3818 3.77182 15.39 4.08273 15.0709L4.95 14.2036Z"
+                        fill="#14161D" />
+                </svg>
+                <span>Light</span>
+            </button> -->
+            <button id="darkModeBtn">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                        d="M8 16C5.77778 16 3.88889 15.2222 2.33333 13.6667C0.777778 12.1111 0 10.2222 0 8C0 5.77778 0.777778 3.88889 2.33333 2.33333C3.88889 0.777778 5.77778 0 8 0C8.20741 0 8.41126 0.00740749 8.61156 0.0222223C8.81185 0.0370371 9.008 0.0592592 9.2 0.0888888C8.59259 0.518518 8.10726 1.07793 7.744 1.76711C7.38074 2.4563 7.19941 3.20059 7.2 4C7.2 5.33333 7.66667 6.46667 8.6 7.4C9.53333 8.33333 10.6667 8.8 12 8.8C12.8148 8.8 13.563 8.61837 14.2444 8.25511C14.9259 7.89185 15.4815 7.40681 15.9111 6.8C15.9407 6.99259 15.963 7.18874 15.9778 7.38844C15.9926 7.58815 16 7.792 16 8C16 10.2222 15.2222 12.1111 13.6667 13.6667C12.1111 15.2222 10.2222 16 8 16Z"
+                        fill="#8C77ED" />
+                </svg> -->
+                <!-- <span>Dark</span> -->
+            </button>
+        </div>
+    </aside>
+
+    <header>
+        <div class="burger_menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <path
+                    d="M18.04 8.30989C18.6924 8.30989 19.3181 8.05071 19.7795 7.58938C20.2408 7.12804 20.5 6.50232 20.5 5.84989C20.5 5.19746 20.2408 4.57175 19.7795 4.11041C19.3181 3.64907 18.6924 3.38989 18.04 3.38989C17.3876 3.38989 16.7619 3.64907 16.3005 4.11041C15.8392 4.57175 15.58 5.19746 15.58 5.84989C15.58 6.50232 15.8392 7.12804 16.3005 7.58938C16.7619 8.05071 17.3876 8.30989 18.04 8.30989ZM6.96 8.30989C7.61243 8.30989 8.23814 8.05071 8.69948 7.58938C9.16082 7.12804 9.42 6.50232 9.42 5.84989C9.42 5.19746 9.16082 4.57175 8.69948 4.11041C8.23814 3.64907 7.61243 3.38989 6.96 3.38989C6.30757 3.38989 5.68186 3.64907 5.22052 4.11041C4.75918 4.57175 4.5 5.19746 4.5 5.84989C4.5 6.50232 4.75918 7.12804 5.22052 7.58938C5.68186 8.05071 6.30757 8.30989 6.96 8.30989ZM18.04 20.6099C18.3631 20.6099 18.6829 20.5463 18.9814 20.4226C19.2799 20.299 19.551 20.1178 19.7795 19.8894C20.0079 19.6609 20.1891 19.3898 20.3127 19.0913C20.4364 18.7928 20.5 18.4729 20.5 18.1499C20.5 17.8268 20.4364 17.507 20.3127 17.2085C20.1891 16.91 20.0079 16.6388 19.7795 16.4104C19.551 16.182 19.2799 16.0008 18.9814 15.8771C18.6829 15.7535 18.3631 15.6899 18.04 15.6899C17.3876 15.6899 16.7619 15.9491 16.3005 16.4104C15.8392 16.8717 15.58 17.4975 15.58 18.1499C15.58 18.8023 15.8392 19.428 16.3005 19.8894C16.7619 20.3507 17.3876 20.6099 18.04 20.6099ZM6.96 20.6099C7.28305 20.6099 7.60294 20.5463 7.9014 20.4226C8.19986 20.299 8.47105 20.1178 8.69948 19.8894C8.92792 19.6609 9.10912 19.3898 9.23274 19.0913C9.35637 18.7928 9.42 18.4729 9.42 18.1499C9.42 17.8268 9.35637 17.507 9.23274 17.2085C9.10912 16.91 8.92792 16.6388 8.69948 16.4104C8.47105 16.182 8.19986 16.0008 7.9014 15.8771C7.60294 15.7535 7.28305 15.6899 6.96 15.6899C6.30757 15.6899 5.68186 15.9491 5.22052 16.4104C4.75918 16.8717 4.5 17.4975 4.5 18.1499C4.5 18.8023 4.75918 19.428 5.22052 19.8894C5.68186 20.3507 6.30757 20.6099 6.96 20.6099Z"
+                    stroke="#111827" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="title_header">
+            <h5>داشبورد</h5>
+        </div>
+        <form action="" class="search_box_header box_shadow">
+            <input type="text" placeholder="Search...">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z"
+                        fill="#1A2029" fill-opacity="0.5" />
+                    <path
+                        d="M22.0004 22.7502C21.8104 22.7502 21.6204 22.6802 21.4704 22.5302L19.4704 20.5302C19.1804 20.2402 19.1804 19.7602 19.4704 19.4702C19.7604 19.1802 20.2404 19.1802 20.5304 19.4702L22.5304 21.4702C22.8204 21.7602 22.8204 22.2402 22.5304 22.5302C22.3804 22.6802 22.1904 22.7502 22.0004 22.7502Z"
+                        fill="#1A2029" fill-opacity="0.5" />
+                </svg>
+            </button>
+        </form>
+        <div class="user_action">
+            <div class="message_user" id="btn_notification">
+               
+            </div>
+           
+
+                <div class="user_info">
+                <div class="img_user_info">
+                    <!-- عکس پروفایل: یک <img> با id مشخص و یک input file مخفی -->
+                    <label for="profileUpload" class="cursor-pointer">
+                    <img id="profileImage" src="img/Photo.png" alt="Profile" class="box_shadow">
+                    <input type="file" id="profileUpload" accept="image/*" hidden>
+                    </label>
+                </div>
+
+                <div class="full_name_user">
+                    <!--‌ اینجا id اضافه می‌کنیم تا JS بتواند مقدارش را از سرور بگذارد -->
+                    <span id="userName">&nbsp;</span>
+                    <span id="userEmail" class="text-xs text-gray-500">&nbsp;</span>
+                    <span>
+                    <!-- SVG پیکان را بدون تغییر نگه دارید -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                        d="M12 14.91C11.81 14.91 11.62 14.84 11.47 14.69L7.93997 11.16C7.64997 10.87 7.64997 10.39 7.93997 10.1C8.22997 9.81001 8.70997 9.81001 8.99997 10.1L12 13.1L15 10.1C15.29 9.81001 15.77 9.81001 16.06 10.1C16.35 10.39 16.35 10.87 16.06 11.16L12.53 14.69C12.38 14.84 12.19 14.91 12 14.91Z"
+                        fill="#9E9E9E" />
+                    </svg>
+                    </span>
+                </div>
+
+                <div class="list_account_user box_shadow">
+                    <!-- … کدهای دراپ‌داون حساب … -->
+                </div>
+                </div>
+
+
+                
+    </header>
+
+    <main>
+       
+
+            <section class="upload_darg box_shadow d_flex justify_content_center align_items_center flex_dir_column">
+            <h5 class="fs_12 fw_400 text_color_19161D text_white_dark">رزومه خود را آپلود کنید</h5>
+
+           
+
+            <span id="resumeLink" style="display:none;" class="fs_12 fw_400 text_color_86888A my_0_5 text_white_dark"></span>
+            <div id="resumePreview" class="my_0_5"></div>
+
+
+            <label for="resumeUpload" class="d_flex align_items_center justify_content_center gap_6 cursor-pointer">
+                <span class="fs_12 fw_400">Choose file</span>
+                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- your SVG path here -->
+                <path d="..." fill="white" />
+                </svg>
+            </label>
+            </section>
+
+
+
+            <p id="aboutText" class="upload_darg box_shadow d_flex justify_content_center align_items_center flex_dir_column text_area" placeholder="درباره خود بنویسید"></p>
+
+            <p id="educationText" class="upload_darg box_shadow d_flex justify_content_center align_items_center flex_dir_column text_area" placeholder="درباره تحصیل و مشاوره های خود بنویسید"></p>
+
+            <!-- دکمه ذخیره -->
+            <div class="d_flex justify_content_center mt_2">
+            <!-- <button id="saveProfile" class="btn btn_primary">ذخیره اطلاعات</button> -->
+
+            <a class="pay__money btn_primary" href="https://sandbox.zarinpal.com/pg/StartPay/TESTAUTH123" target="_blank">پرداخت</a>
+            
+            </div>
+
+
+    </main>
+    
+
+    <div class="bg_cover">
+
+    </div>
+    
+    <script src="dashbord_consult-preview/plugins/chart.js"></script>
+    <script src="dashbord_consult-preview/plugins/apexcharts.js"></script>
+    <script src="dashbord_consult-preview/plugins/sweetalert2@11.js"></script>
+
+    <script src="dashbord_consult-preview/main.js"></script>
+
+    <!-- <script src="consultant.js"></script> -->
+
+   
+   
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const token = localStorage.getItem('token');
+  
+  if (!token) {
+    alert('برای مشاهده اطلاعات لطفاً وارد شوید.');
+    return;
+  }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const consultantId = urlParams.get('id');
+  if (!consultantId) {
+    alert('آیدی مشاور مشخص نیست.');
+    return;
+  }
+
+  const nameElem = document.getElementById('userName');
+  const emailElem = document.getElementById('userEmail');
+  const profileImg = document.getElementById('profileImage');
+  const aboutElem = document.getElementById('aboutText');
+  const educationElem = document.getElementById('educationText');
+  const resumeLink = document.getElementById('resumeLink');
+
+  fetch(`/api/user/consultant/${consultantId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      if (!res.ok) throw new Error('❌ مشاور یافت نشد');
+      return res.json();
+    })
+    .then(data => {
+      const user = data.consultant;
+
+      nameElem.textContent = user.name || 'نام نامشخص';
+      emailElem.textContent = user.email || 'ایمیل موجود نیست';
+      if (user.avatar) profileImg.src = user.avatar;
+      if (user.aboutYourself) aboutElem.textContent = user.aboutYourself;
+      if (user.aboutEducation) educationElem.textContent = user.aboutEducation;
+
+      if (user.resumeFile) {
+        resumeLink.href = user.resumeFile;
+        resumeLink.textContent = '📎 مشاهده رزومه';
+        resumeLink.target = '_blank';
+        resumeLink.style.display = 'inline-block';
+      } else {
+        resumeLink.style.display = 'none';
+      }
+    })
+    .catch(err => {
+      console.error('❌ خطا در دریافت اطلاعات مشاور:', err);
+      alert('مشکل در دریافت اطلاعات مشاور');
+    });
+});
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+</body>
+
+</html>ّ

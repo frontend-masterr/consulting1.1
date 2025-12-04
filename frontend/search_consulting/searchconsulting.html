@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="img/favicon5.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="best_freelancer.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+        <title>جستجوی مشاور</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="http://localhost:5000/index.html" class="nav__logo">
+                     moshavermind
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="http://localhost:5000/login/login.html" class="nav__link active-lin">ورود</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="nav__link active-lin">ثبت نام</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="http://localhost:5000/about/about.html" class="nav__link">درباره ما</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="searchconsulting.html" class="nav__link">مشاوران</a>
+                        </li>
+
+                        <!-- <li class="nav__item">
+                            <a href="/best_employ/best_employ.html" class="nav__link">خدمات</a>
+                        </li> -->
+
+                        <li class="nav__item">
+                            <a href="http://localhost:5000/index.html" class="nav__link">خانه</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+                    <!-- Theme change button -->
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="wrapper">
+            <div class="search-bar">
+                <div class="icon"><img src="/assets/img/search.png" width="25px" height="25px"></i></div>
+                <input type="text" placeholder="... لطفا نوع مشاور خود را جستجو کنید ">
+    
+                <div class="autocom-box"></div>
+                
+            </div>
+        </div>
+   
+                    
+        <main class="main">
+            <div class="containerr">
+                <section class="destinations">
+                    <!-- <h2 class="destinations__title">جستجوی بیشتر مشاورین</h2> -->
+                    <div class="destinations__places">
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/consultant_edication.jpg" alt="consultant_edication" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon place__like-icon--fill" xmlns="http://www.w3.org/2000/svg"
+                                         width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">تومان 1,100,000</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور تحصیلی</h3>
+                            <p class="place__caption">با مشاوره حرفه‌ای تحصیلی، راه موفقیت را آسان کنید! بیش از 300 دانش‌آموز تا کنون با ما به اهداف تحصیلی خود رسیده‌اند</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/personal_consultant.jpg" alt="personal_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">2,250,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور شخصی</h3>
+                            <p class="place__caption">با مشاوره شخصی، مسیر رشد و پیشرفت خود را پیدا کنید. ما همراه شما هستیم تا به اهداف زندگی‌تان نزدیک‌تر شوید و بهترین نسخه خودتان را بسازید</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/work_consultant.jpg" alt="work_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">1,900,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور کاری</h3>
+                            <p class="place__caption">با مشاوره شغلی، مسیر کاری خود را بهبود دهید و به موفقیت حرفه‌ای دست یابید همراه شما هستیم تا مهارت‌هایتان را تقویت کرده و به شغلی مناسب با استعدادها و علاقه‌های شما دست پیدا کنید</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/leigeal_consultant.jpg" alt="leigeal_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">1,800,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور حقوقی</h3>
+                            <p class="place__caption">با مشاوره حقوقی، از حقوق خود به بهترین شکل دفاع کنید. تصمیمات قانونی خود را با اطمینان و آگاهی کامل بگیرید</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/fiannace_consultant.jpg" alt="fiannace_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">1,680,000 نومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور مالی</h3>
+                            <p class="place__caption">مشاوره مالی، سرمایه‌گذاری‌های هوشمندانه انجام دهید و آینده مالی خود را تضمین کنید. برای مدیریت بهتر منابع مالی‌تان همراه شما هستیم</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/Besuines_consultant.jpg" alt="Besuines_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">1,500,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور کسب و کار</h3>
+                            <p class="place__caption">ا مشاوره کسب‌وکار، استراتژی‌های موفقیت را شناسایی کنید و کسب‌وکار خود را به اوج برسانید</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/moshaver_bazar _mali.png" alt="moshaver_bazar_mali" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">2,400,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور بازارهای مالی</h3>
+                            <p class="place__caption">با مشاوره بازارهای مالی، تصمیمات سرمایه‌گذاری بهتری بگیرید و ریسک‌ها را کاهش دهید. برای دستیابی به سود پایدار، همراه شما هستیم</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place">
+                            <div class="place__banner">
+                                <img src="img/company_consultant.jpg" alt="company_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">3,000,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور خصوصی شرکت ها</h3>
+                            <p class="place__caption">با مشاوره خصوصی شرکت‌ها، استراتژی‌های رشد و بهینه‌سازی را طراحی کنید و کسب‌وکار خود را در دنیای رقابتی پیش ببرید</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+                        <div class="place remove_1610">
+                            <div class="place__banner">
+                                <img src="img/company_finnace_consultant.jpg" alt="company_finnace_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">2,200,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور مالی شرکت ها</h3>
+                            <p class="place__caption">با مشاوره مالی شرکت‌ها، برنامه‌ریزی مالی دقیق انجام دهید و منابع خود را بهینه‌سازی کنید تا رشد پایدار و موفقیت بلندمدت داشته باشید</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+                        <div class="place place_remove__imagration1200">
+                            <div class="place__banner">
+                                <img src="img/startup_consultant.jpg" alt="startup_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">3,390,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title ">مشاور استارتاپ</h3>
+                            <p class="place__caption">با مشاوره استارتاپ، ایده‌های نوآورانه خود را به یک کسب‌وکار موفق تبدیل کنید. راهنمایی در مراحل مختلف رشد و جذب سرمایه برای موفقیت پایدار</p>
+                            <a href="http://localhost:5000/signin/sign-in.html" class="btn place__link" target="_blank">رزرو کنید</a>
+                        </div>
+
+                        
+
+
+                        <div class="place place_remove1200 remove_1222">
+                            <div class="place__banner">
+                                <img src="img/university_apply_consultant.jpg" alt="university_apply_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">4,300,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور اپلای</h3>
+                            <p class="place__caption">با مشاوره اپلای، روند پذیرش دانشگاه‌ها و برنامه‌های تحصیلی را آسان‌تر کنید. از نوشتن رزومه تا مصاحبه و انتخاب بهترین گزینه‌ها، همراه شما هستیم</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+
+
+
+
+                        <div class="place place_remove__imagration12000 remove_1222">
+                            <div class="place__banner">
+                                <img src="img/immagiration_consultant.jpg" alt="immagiration_consultant" class="place__img">
+                                <div class="place__like">
+                                    <svg class="place__like-icon" xmlns="http://www.w3.org/2000/svg" width="24.037"
+                                         height="24.037" viewBox="0 0 24.037 24.037" fill="#fff" stroke="#2E7D32"
+                                         stroke-width="1.5">
+                                        <path id="Path_955" data-name="Path 955"
+                                              d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                              transform="translate(2.716 20.496) rotate(-45)"/>
+                                    </svg>
+                                </div>
+                                <div class="place__price">
+                                    <p class="place__price-text">5,000,000 تومان</p>
+                                </div>
+                            </div>
+                            <h3 class="place__title">مشاور مهاجرت</h3>
+                            <p class="place__caption">با مشاوره مهاجرت، بهترین مسیر را برای زندگی و کار در کشور جدید پیدا کنید. از انتخاب کشور تا تکمیل مدارک و مراحل قانونی، ما همراه شما هستیم</p>
+                            <a href="http://localhost:5000/sign-in/sign-in.html" class="btn place__link" target="_blank">رزرو</a>
+                        </div>
+                    </div>
+
+                    
+
+                    
+
+                </section>
+
+        
+                <section class="portfolio">
+                    <div class="container">
+                        <h2 class="portfolio__title">سرویس هایی که قرار است بعدا به ما اضافه شود</h2>
+                        <div class="portfolio-items">
+                            <div class="portfolio__item">
+                                <div class="portfolio__overlay">مشاور تراپیست</div>
+                                <img src="img/Why-Counseling-is-Important.jpg" alt="PortFolio" class="portfolio__img">
+                            </div>
+                            <div class="portfolio__item">
+                                <div class="portfolio__overlay">مشاور خانواده</div>
+                                <img src="img/freepik__upload__40775.jpeg" alt="PortFolio" class="portfolio__img">
+                            </div>
+                            <div class="portfolio__item">
+                                <div class="portfolio__overlay">مشاور نوجوانان</div>
+                                <img src="img/family consultent.jpeg" alt="PortFolio" class="portfolio__img">
+                            </div>
+                            <div class="portfolio__item">
+                                <div class="portfolio__overlay">مشاور ازدواج</div>
+                                <img src="img/freepik__upload__7756.jpeg" alt="PortFolio" class="portfolio__img">
+                            </div>
+                            <div class="portfolio__item">
+                                <div class="portfolio__overlay">مشاور سلامتی</div>
+                                <img src="img/freepik__upload__55948.jpeg" alt="PortFolio" class="portfolio__img">
+                            </div>
+                            <div class="portfolio__item">
+                                <div class="portfolio__overlay">مشاور دیجیتال مارکتینگ</div>
+                                <img src="img/freepik__upload__40438.jpeg" alt="PortFolio" class="portfolio__img">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="http://localhost:5000/index.html" class="footer__logo">
+                        Moshavermind
+                    </a>
+
+                    <h3 class="footer__title">
+                        اخبار ما را دنبال کنید <br> تا همیشه به روز بمانید
+                    </h3>
+
+                    <div class="footer__subscribe">
+                        <input type="email" placeholder="ایمیل خود را بنویسید" class="footer__input">
+
+                        <button class="button button--flex footer__button">
+                            Subscribe
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">آدرس ما</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">تهران یوسف آباد</li>
+                        <li class="footer__information">خیابان اسد آبادی</li>
+                        <li class="footer__information">پلاک 70</li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">ارتباط با ما</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">09232719275</li>
+                        
+                        <div class="footer__social">
+                            
+                            <a href="https://www.instagram.com/" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+
+                            <a href="https://https://www.linkedin.com/" target="_blank" class="home__social-link">
+                            <i class="ri-linkedin-box-fill"></i>
+                        </a>
+
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        همکاری با ما
+                    </h3>
+
+                    
+            </div>
+
+            <p class="footer__copy">&#169; Moshavermind. All rigths reserved</p>
+        </footer>
+
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="scrollreveal.min.js"></script>
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>       
+<script src="script.js"></script>    
+<script src="scorool.js"></script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.querySelector('.search-bar input');
+  const places = document.querySelectorAll('.place');
+
+  input.addEventListener('input', (e) => {
+    const keyword = e.target.value.trim().toLowerCase();
+
+    places.forEach(place => {
+      const title = place.querySelector('.place__title')?.textContent?.toLowerCase() || '';
+      const caption = place.querySelector('.place__caption')?.textContent?.toLowerCase() || '';
+
+      if (title.includes(keyword) || caption.includes(keyword)) {
+        place.style.display = 'block';
+        
+      } else {
+        place.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+
+
+</script>
+ </script>
+</body>
+</html>

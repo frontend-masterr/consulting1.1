@@ -1,0 +1,79 @@
+<!-- ذخیره به عنوان register.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>ثبت نام</title>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css'>
+  <link rel="stylesheet" href="sign.css">
+  <link rel="shortcut icon" href="favicon5.png" type="image/x-icon">
+</head>
+<body>
+
+<div class="container">
+  <header>ثبت نام</header>
+  <form id="registerForm" action="/api/auth" method="POST" enctype="multipart/form-data">
+    
+    <div class="field">
+      <div class="input-field">
+        <input type="text" name="name" placeholder="نام کامل" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="input-field">
+        <input type="email" name="email" placeholder="ایمیل" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="input-field">
+        <input type="password" name="password" placeholder="رمز عبور" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="input-field">
+        <input type="text" name="shaba" placeholder="شماره شبا" />
+      </div>
+    </div>
+
+    <!-- <div class="field">
+      <div class="input-field">
+        <input type="file" name="melliImage" accept="image/*" required />
+        <input type="file" name="avatar" />
+      </div>
+    </div> -->
+
+    <div class="field">
+  <div class="input-field">
+    <input type="file" name="melliImage" id="melliImage" accept="image/*" required />
+    <span id="hintText" style="display: none; color: #FFF;">لطفاً عکس کارت ملی خود را بارگذاری کنید</span>
+  </div>
+</div>
+
+
+    <div class="radio-button-box">
+      <label for="consultant">مشاور</label>
+      <input type="radio" id="consultant" name="role" value="مشاور" required>
+      <label for="user">کاربر</label>
+      <input type="radio" id="user" name="role" value="کاربر">
+    </div>
+
+    <div class="input-field button">
+      <input type="submit" value="عضو بشوید" />
+    </div>
+  </form>
+</div>
+
+<script>
+  const fileInput = document.getElementById("melliImage");
+  const hintText = document.getElementById("hintText");
+
+  fileInput.addEventListener("click", function () {
+    hintText.style.display = "inline";
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

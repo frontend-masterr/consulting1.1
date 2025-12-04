@@ -1,0 +1,7 @@
+{
+    "name": "مبینا اکبری ",
+    "email": "akbari_mobina1386@gmail.com",
+    "role": "مشاور",
+    "shaba": "IR۶۶۰۵۶۰۰۸۱۷۷۷۷۰۳۲۵۸۰۵۴۰۰۱",
+    "id": "a8cdeec1-68cf-4840-936f-a5b8940ed66e"
+  },
